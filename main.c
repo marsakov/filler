@@ -88,14 +88,14 @@ int		main()
 	get_next_line(0, &line);
 	free(line);
 	ptr.map = writer(ptr.x, ptr.y, 0);
-	// printf("map ok\n");
+	printf("map ok\n");
 
-	// printf("n = %d | x = %d | y = %d\n", ptr.n, ptr.x, ptr.y);
-	// printf("____WRITER____\n");
-	// int i = 0;
-	// while (i < ptr.y)
-	// 	printf("%s\n", ptr.map[i++]);
-	// printf("______________\n");
+	printf("n = %d | x = %d | y = %d\n", ptr.n, ptr.x, ptr.y);
+	printf("____WRITER____\n");
+	int i = 0;
+	while (i < ptr.y)
+		printf("%s\n", ptr.map[i++]);
+	printf("______________\n");
 
 	while (get_next_line(0, &line) > 0 && ft_strstr(line, "Piece ") == NULL)
 		free(line);
@@ -104,12 +104,12 @@ int		main()
 	ptr.piece = writer(x, y, 1);
 
 	printf("piece ok\n");
-	// printf("piece x = %d | y = %d\n", x, y);
-	// printf("____WRITER____\n");
-	// i = 0;
-	// while (i < y)
-	// 	printf("%s\n", ptr.piece[i++]);
-	// printf("______________\n");
+	printf("piece x = %d | y = %d\n", x, y);
+	printf("____WRITER____\n");
+	i = 0;
+	while (i < y)
+		printf("%s\n", ptr.piece[i++]);
+	printf("______________\n");
 
 	fill_map(&ptr);
 	printf("%d %d\n", ptr.x_coord, ptr.y_coord);
