@@ -1,5 +1,5 @@
-seed = 2285
-O: timedout
-./players/abanlin.filler won
+seed = 5860
+./../msakovyc.filler: Segfault at 0
+players/abanlin.filler won
 Score:
-0AGAINST154
+0AGAINST160
