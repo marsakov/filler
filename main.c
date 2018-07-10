@@ -32,94 +32,119 @@ char	**writer(int x, int y, int piece)
 	return (map);
 }
 
-int		find_place(t_filler *ptr, char c)
+void	find_place(t_filler *ptr)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
+	char	c;
 
-	i = (c == 'x') ? 0 : ptr->y - 1;
+	c = (ptr->n == 2) ? 'x' : 'o';
+	i = (ptr->n == 2) ? 0 : ptr->y - 1;
 	while (ptr->map[i])
 	{
-		j = (c == 'x') ? 0 : ptr->x - 1;
+		j = (ptr->n == 2) ? 0 : ptr->x - 1;
 		while (ptr->map[i][j])
 		{
 			if (ptr->map[i][j] == c || ptr->map[i][j] == ft_toupper(c))
 			{
-				// printf("found: x = %d, y = %d\n", j, i);
-				ptr->x_coord = j;
-				ptr->y_coord = i;
-				return (0);
+				ptr->x_coord = i;
+				ptr->y_coord = j;
+				return ;
 			}
-			(c == 'x') ? j++ : j--;
+			(ptr->n == 2) ? j++ : j--;
 		}
-		(c == 'x') ? i++ : i--;
+		(ptr->n == 2) ? i++ : i--;
 	}
-	// printf("didn't find anything\n");
-	return (0);
 }
 
-char	**fill_map(t_filler *ptr)
+int		fill_map(t_filler *ptr)
 {
 	int	i;
+	int j;
+	int counter;
 
-	i = 0;
-	find_place(ptr, (ptr->n == 1) ? 'o' : 'x');
-	// while (ptr.map[i])
-	// {
-	// 	if (ptr.map[])
-	// }
-	return (ptr->map);
+	counter = 0;
+	while (counter != (ptr->piece_x - 1) * (ptr->piece_y - 1) - 1)
+	{
+		find_place(ptr);
+		i = ptr->y_coord;
+		while (ptr->map[i] && ptr->piece[i - ptr->y_coord])
+		{
+			j = ptr->x_coord;
+			while (ptr->map[j] && ptr->piece[j - ptr->x_coord])
+			{
+				if (ptr->map[i][j] == '.' && ptr->piece[i - ptr->y_coord][j - ptr->x_coord] == '*')
+					counter++;
+				j++;
+			}
+			i++;
+		}
+		if (ptr->x_coord - 1 == ptr->x)
+		{
+			ptr->x_coord = 0;
+			(ptr->n == 2) ? ptr->y_coord++ : ptr->y_coord--;
+		}
+		else
+			(ptr->n == 2) ? ptr->x_coord++ : ptr->x_coord--;
+	}
+	return (counter);
 }
 
 int		main()
 {
-	int			x;
-	int			y;
 	char		*line;
 	t_filler	ptr;
+	static int	n = 0;
 
-	int fd = open("test", O_RDWR);
-	ft_putendl_fd("hello", fd);
-	while (get_next_line(0, &line) > 0 && ft_strstr(line, "msakovyc.filler]") == NULL)
-		free(line);
-	ptr.n = *(ft_strchr(line,'p') + 1) - '0';
+	// int fd = open("test", O_RDWR);
+	// ft_putendl_fd("111start", fd);
+	if (!n)
+	{
+		// ft_putendl_fd("first start", fd);
+
+		while (get_next_line(0, &line) > 0 && ft_strstr(line, "msakovyc.filler]") == NULL)
+			free(line);
+		n = *(ft_strchr(line,'p') + 1) - '0';
+	}
+	ptr.n = n;
 	while (get_next_line(0, &line) > 0 && ft_strstr(line, "Plateau ") == NULL)
 		free(line);
 	ptr.y = ft_atoi(ft_strchr(line, ' '));
 	ptr.x = ft_atoi(ft_strrchr(line, ' '));
-	while (get_next_line(0, &line) > 0)
-	{
-		free(line);
-		ptr.map = writer(ptr.x, ptr.y, 0);
-		ft_putendl_fd("map ok", fd);
 	
-		//printf("n = %d | x = %d | y = %d\n", ptr.n, ptr.x, ptr.y);
-		ft_putendl_fd("____WRITER____", fd);
-		int i = 0;
-		while (i < ptr.y)
-			ft_putendl_fd(ptr.map[i++], fd);
-		ft_putendl_fd("______________", fd);
+	get_next_line(0, &line);
+	free(line);
+	ptr.map = writer(ptr.x, ptr.y, 0);
 
-		while (get_next_line(0, &line) > 0 && ft_strstr(line, "Piece ") == NULL)
-			free(line);
-		y = ft_atoi(ft_strchr(line, ' '));
-		x = ft_atoi(ft_strrchr(line, ' '));
-		ptr.piece = writer(x, y, 1);
+	// ft_putendl_fd("map ok", fd);
+	// //printf("n = %d | x = %d | y = %d\n", ptr.n, ptr.x, ptr.y);
+	// ft_putendl_fd("____WRITER____", fd);
+	// int i = 0;
+	// while (i < ptr.y)
+	// 	ft_putendl_fd(ptr.map[i++], fd);
+	// ft_putendl_fd("______________", fd);
 
-		ft_putendl_fd("piece ok", fd);
-		// printf("piece x = %d | y = %d\n", x, y);
-		ft_putendl_fd("____WRITER____", fd);
-		i = 0;
-		while (i < y)
-			ft_putendl_fd(ptr.piece[i++], fd);
-		ft_putendl_fd("______________", fd);
+	while (get_next_line(0, &line) > 0 && ft_strstr(line, "Piece ") == NULL)
+		free(line);
+	ptr.piece_y = ft_atoi(ft_strchr(line, ' '));
+	ptr.piece_x = ft_atoi(ft_strrchr(line, ' '));
+	ptr.piece = writer(ptr.piece_x, ptr.piece_y, 1);
+	find_place(&ptr);
+	// fill_map(&ptr);
 
-		fill_map(&ptr);
-		// printf("%d %d\n", ptr.x_coord, ptr.y_coord);
-		ft_putnbr(ptr.x_coord);
-		ft_putchar(' ');
-		ft_putnbr(ptr.y_coord);
-		ft_putchar('\n');
-	}
+	// ft_putendl_fd("piece ok", fd);
+	// // printf("piece x = %d | y = %d\n", x, y);
+	// ft_putendl_fd("____WRITER____", fd);
+	// i = 0;
+	// while (i < y)
+	// 	ft_putendl_fd(ptr.piece[i++], fd);
+	// ft_putendl_fd("______________", fd);
+	// printf("%d %d\n", ptr.x_coord, ptr.y_coord);
+
+	ft_putnbr(ptr.x_coord);
+	ft_putchar(' ');
+	ft_putnbr(ptr.y_coord);
+	ft_putchar('\n');
+    // printf("stars = %d\n", ptr.stars);
 	return (0);
 }

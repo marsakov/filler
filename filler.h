@@ -17,6 +17,8 @@ typedef struct	s_filler
 {
 	int			x;
 	int			y;
+    int         piece_x;
+    int         piece_y;
 	int			n;
 	int			x_coord;
 	int			y_coord;
@@ -55,9 +57,9 @@ Plateau 15 17:
 012 ..............X..
 013 .................
 014 .................
-Piece 2 1:
-*
-*
+Piece 2 3:
+.**
+.*.
 
 
 */
