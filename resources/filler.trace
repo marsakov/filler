@@ -1,4 +1,6 @@
-seed = 4813
+seed = 57
+O: error on input
+./../msakovyc.filler: Segfault at 0
 players/abanlin.filler won
 Score:
-0AGAINST139
+0AGAINST147

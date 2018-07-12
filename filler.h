@@ -17,11 +17,13 @@ typedef struct	s_filler
 {
 	int			x;
 	int			y;
-    int         piece_x;
-    int         piece_y;
+	int			piece_x;
+	int			piece_y;
 	int			n;
 	int			x_coord;
 	int			y_coord;
+	int			p_x;
+	int			p_y;
 	char		**map;
 	char		**piece;
 }				t_filler;
@@ -41,7 +43,7 @@ $$$ exec p1 : [./msakovyc.filler]
 launched ./players/abanlin.filler
 $$$ exec p2 : [./players/abanlin.filler]
 Plateau 15 17:
-    01234567890123456
+	01234567890123456
 000 .................
 001 .................
 002 .................
