@@ -21,20 +21,14 @@ ____WRITER____
 .**
 .*.
 ______________
-ptr->x_coord = 8 ptr->y_coord = 2 counter = 6
-map ok
-____WRITER____
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..oo.............
-..O..............
-.................
-.................
+ptr->x_coord = 2 ptr->y_coord = 8 counter = 7
+TRY AGAIN WITH:
+ptr->x_coord = 1 ptr->y_coord = 8 counter = 7
+ptr->x_coord = 1 ptr->y_coord = 8 counter = 6
+TRY AGAIN WITH:
+ptr->x_coord = 0 ptr->y_coord = 8 counter = 5
+ptr->x_coord = 0 ptr->y_coord = 8 counter = 6
+...
 .................
 ..............X..
 .................
@@ -42,237 +36,136 @@ ____WRITER____
 ______________
 piece ok
 ____WRITER____
-..*
-..*
+*
+*
 ______________
-ptr->x_coord = 8 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 8 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 7 ptr->y_coord = 2 counter = 5
-ptr->x_coord = 7 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 7 ptr->y_coord = 2 counter = 3
+ptr->x_coord = 7 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 6 ptr->y_coord = 2 counter = 5
-ptr->x_coord = 6 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 6 ptr->y_coord = 2 counter = 3
+ptr->x_coord = 6 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 5 ptr->y_coord = 2 counter = 5
-ptr->x_coord = 5 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 5 ptr->y_coord = 2 counter = 3
+ptr->x_coord = 5 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 4 ptr->y_coord = 2 counter = 5
-ptr->x_coord = 4 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 4 ptr->y_coord = 2 counter = 3
+ptr->x_coord = 4 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 3 ptr->y_coord = 2 counter = 5
-ptr->x_coord = 3 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 3 ptr->y_coord = 2 counter = 3
+ptr->x_coord = 3 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 2 ptr->y_coord = 2 counter = 5
-ptr->x_coord = 2 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 2 ptr->y_coord = 2 counter = 3
+ptr->x_coord = 2 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 1 ptr->y_coord = 2 counter = 5
-ptr->x_coord = 1 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 1 ptr->y_coord = 2 counter = 3
+ptr->x_coord = 1 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 0 ptr->y_coord = 2 counter = 5
-ptr->x_coord = 0 ptr->y_coord = 2 counter = 5
+ptr->x_coord = 0 ptr->y_coord = 2 counter = 3
+ptr->x_coord = 0 ptr->y_coord = 2 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 16 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 16 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 16 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 16 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 15 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 15 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 15 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 15 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 14 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 14 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 14 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 14 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 13 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 13 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 13 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 13 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 12 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 12 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 12 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 12 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 11 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 11 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 11 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 11 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 10 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 10 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 10 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 10 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 9 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 9 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 9 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 9 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 8 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 8 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 8 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 8 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 7 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 7 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 7 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 7 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 6 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 6 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 6 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 6 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 5 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 5 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 5 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 5 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 4 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 4 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 4 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 4 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 3 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 3 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 3 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 3 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 2 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 2 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 2 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 2 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 1 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 1 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 1 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 1 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 0 ptr->y_coord = 1 counter = 5
-ptr->x_coord = 0 ptr->y_coord = 1 counter = 5
+ptr->x_coord = 0 ptr->y_coord = 1 counter = 3
+ptr->x_coord = 0 ptr->y_coord = 1 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 16 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 16 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 16 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 16 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 15 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 15 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 15 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 15 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 14 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 14 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 14 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 14 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 13 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 13 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 13 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 13 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 12 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 12 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 12 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 12 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 11 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 11 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 11 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 11 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 10 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 10 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 10 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 10 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 9 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 9 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 9 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 9 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 8 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 8 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 8 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 8 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 7 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 7 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 7 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 7 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 6 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 6 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 6 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 6 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 5 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 5 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 5 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 5 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 4 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 4 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 4 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 4 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 3 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 3 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 3 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 3 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 2 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 2 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 2 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 2 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 1 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 1 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 1 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 1 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 0 ptr->y_coord = 0 counter = 5
-ptr->x_coord = 0 ptr->y_coord = 0 counter = 5
+ptr->x_coord = 0 ptr->y_coord = 0 counter = 3
+ptr->x_coord = 0 ptr->y_coord = 0 counter = 3
 TRY AGAIN WITH:
-ptr->x_coord = 16 ptr->y_coord = -1 counter = 5
-ptr->x_coord = 16 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 15 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 15 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 14 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 14 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 13 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 13 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 12 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 12 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 11 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 11 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 10 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 10 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 9 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 9 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 8 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 8 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 7 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 7 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 6 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 6 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 5 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 5 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 4 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 4 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 3 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 3 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 2 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 2 ptr->y_coord = -1 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 1 ptr->y_coord = -1 counter = 4
-ptr->x_coord = 1 ptr->y_coord = -1 counter = 5
-TRY AGAIN WITH:
-ptr->x_coord = 0 ptr->y_coord = -1 counter = 5
-ptr->x_coord = 0 ptr->y_coord = -1 counter = 5
-TRY AGAIN WITH:
-ptr->x_coord = 16 ptr->y_coord = -2 counter = 5
-ptr->x_coord = 16 ptr->y_coord = -2 counter = 4
-TRY AGAIN WITH:
-ptr->x_coord = 15 ptr->y_coord = -2 counter = 4
-ptr->x_coord = 15 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 14 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 14 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 13 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 13 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 12 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 12 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 11 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 11 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 10 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 10 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 9 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 9 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 8 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 8 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 7 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 7 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 6 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 6 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 5 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 5 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 4 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 4 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 3 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 3 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 2 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 2 ptr->y_coord = -2 counter = 3
-TRY AGAIN WITH:
-ptr->x_coord = 1 ptr->y_coord = -2 counter = 3
-ptr->x_coord = 1 ptr->y_coord = -2 counter = 5
-TRY AGAIN WITH:
-ptr->x_coord = 0 ptr->y_coord = -2 counter = 5
-ptr->x_coord = 0 ptr->y_coord = -2 counter = 5
-TRY AGAIN WITH:
-ptr->x_coord = 16 ptr->y_coord = -3 counter = 5
+ptr->x_coord = 16 ptr->y_coord = -1 counter = 3
+ptr->x_coord = 16 ptr->y_coord = -1 counter = 2

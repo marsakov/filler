@@ -13,20 +13,39 @@
 #include <stdio.h>
 #include "libft/includes/libft.h"
 
-typedef struct	s_filler
+// typedef struct	s_filler
+// {
+// 	int			x;
+// 	int			y;
+// 	int			piece_x;
+// 	int			piece_y;
+// 	int			n;
+// 	int			x_coord;
+// 	int			y_coord;
+// 	int			p_x;
+// 	int			p_y;
+// 	char		**map;
+// 	char		**piece;
+// }				t_filler;
+
+
+typedef struct	s_data
 {
 	int			x;
 	int			y;
-	int			piece_x;
-	int			piece_y;
-	int			n;
-	int			x_coord;
-	int			y_coord;
-	int			p_x;
-	int			p_y;
-	char		**map;
-	char		**piece;
-}				t_filler;
+	int			t_x;
+	int			t_y;
+	char		**arr;
+}				t_data;
+
+typedef struct		s_filler
+{
+	struct	s_data	*piece;
+	struct	s_data	*map;
+	int				x_result;
+	int				y_result;
+	int				n;
+}					t_filler;
 
 char			**writer(int x, int y, int piece);
 
