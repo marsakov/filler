@@ -6,237 +6,237 @@
 
 #IncludeRegexTransform: 
 
-/Users/msakovyc/filler/filler.h
+/home/msakovych/C/filler/filler.h
 stdio.h
 -
 libft/includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_atoi.c
+/home/msakovych/C/filler/libft/ft_atoi.c
 
-/Users/msakovyc/filler/libft/ft_atoi_base.c
+/home/msakovych/C/filler/libft/ft_atoi_base.c
 
-/Users/msakovyc/filler/libft/ft_bzero.c
+/home/msakovych/C/filler/libft/ft_bzero.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_isalnum.c
+/home/msakovych/C/filler/libft/ft_isalnum.c
 
-/Users/msakovyc/filler/libft/ft_isalpha.c
+/home/msakovych/C/filler/libft/ft_isalpha.c
 
-/Users/msakovyc/filler/libft/ft_isascii.c
+/home/msakovych/C/filler/libft/ft_isascii.c
 
-/Users/msakovyc/filler/libft/ft_isdigit.c
+/home/msakovych/C/filler/libft/ft_isdigit.c
 
-/Users/msakovyc/filler/libft/ft_isprime.c
+/home/msakovych/C/filler/libft/ft_isprime.c
 
-/Users/msakovyc/filler/libft/ft_isprint.c
+/home/msakovych/C/filler/libft/ft_isprint.c
 
-/Users/msakovyc/filler/libft/ft_itoa.c
+/home/msakovych/C/filler/libft/ft_itoa.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_lstadd.c
+/home/msakovych/C/filler/libft/ft_lstadd.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_lstdel.c
+/home/msakovych/C/filler/libft/ft_lstdel.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_lstdelone.c
+/home/msakovych/C/filler/libft/ft_lstdelone.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_lstiter.c
+/home/msakovych/C/filler/libft/ft_lstiter.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_lstmap.c
+/home/msakovych/C/filler/libft/ft_lstmap.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_lstnew.c
+/home/msakovych/C/filler/libft/ft_lstnew.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_memalloc.c
+/home/msakovych/C/filler/libft/ft_memalloc.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_memccpy.c
+/home/msakovych/C/filler/libft/ft_memccpy.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_memchr.c
+/home/msakovych/C/filler/libft/ft_memchr.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_memcmp.c
+/home/msakovych/C/filler/libft/ft_memcmp.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_memcpy.c
+/home/msakovych/C/filler/libft/ft_memcpy.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_memdel.c
+/home/msakovych/C/filler/libft/ft_memdel.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_memmove.c
+/home/msakovych/C/filler/libft/ft_memmove.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_memset.c
+/home/msakovych/C/filler/libft/ft_memset.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_nextprime.c
+/home/msakovych/C/filler/libft/ft_nextprime.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_putchar.c
+/home/msakovych/C/filler/libft/ft_putchar.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_putchar_fd.c
+/home/msakovych/C/filler/libft/ft_putchar_fd.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_putendl.c
+/home/msakovych/C/filler/libft/ft_putendl.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_putendl_fd.c
+/home/msakovych/C/filler/libft/ft_putendl_fd.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_putnbr.c
+/home/msakovych/C/filler/libft/ft_putnbr.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_putnbr_fd.c
+/home/msakovych/C/filler/libft/ft_putnbr_fd.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_putstr.c
+/home/msakovych/C/filler/libft/ft_putstr.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_putstr_fd.c
+/home/msakovych/C/filler/libft/ft_putstr_fd.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_range.c
+/home/msakovych/C/filler/libft/ft_range.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strcat.c
+/home/msakovych/C/filler/libft/ft_strcat.c
 
-/Users/msakovyc/filler/libft/ft_strchr.c
+/home/msakovych/C/filler/libft/ft_strchr.c
 
-/Users/msakovyc/filler/libft/ft_strclr.c
+/home/msakovych/C/filler/libft/ft_strclr.c
 
-/Users/msakovyc/filler/libft/ft_strcmp.c
+/home/msakovych/C/filler/libft/ft_strcmp.c
 
-/Users/msakovyc/filler/libft/ft_strcpy.c
+/home/msakovych/C/filler/libft/ft_strcpy.c
 
-/Users/msakovyc/filler/libft/ft_strdel.c
+/home/msakovych/C/filler/libft/ft_strdel.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strdup.c
+/home/msakovych/C/filler/libft/ft_strdup.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strequ.c
+/home/msakovych/C/filler/libft/ft_strequ.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_striter.c
+/home/msakovych/C/filler/libft/ft_striter.c
 
-/Users/msakovyc/filler/libft/ft_striteri.c
+/home/msakovych/C/filler/libft/ft_striteri.c
 
-/Users/msakovyc/filler/libft/ft_strjoin.c
+/home/msakovych/C/filler/libft/ft_strjoin.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strlcat.c
+/home/msakovych/C/filler/libft/ft_strlcat.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strlen.c
+/home/msakovych/C/filler/libft/ft_strlen.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strmap.c
+/home/msakovych/C/filler/libft/ft_strmap.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strmapi.c
+/home/msakovych/C/filler/libft/ft_strmapi.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strncat.c
+/home/msakovych/C/filler/libft/ft_strncat.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strncmp.c
+/home/msakovych/C/filler/libft/ft_strncmp.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strncpy.c
+/home/msakovych/C/filler/libft/ft_strncpy.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strnequ.c
+/home/msakovych/C/filler/libft/ft_strnequ.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strnew.c
+/home/msakovych/C/filler/libft/ft_strnew.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strnjoin.c
+/home/msakovych/C/filler/libft/ft_strnjoin.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strnstr.c
+/home/msakovych/C/filler/libft/ft_strnstr.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strrchr.c
+/home/msakovych/C/filler/libft/ft_strrchr.c
 
-/Users/msakovyc/filler/libft/ft_strrev.c
+/home/msakovych/C/filler/libft/ft_strrev.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strsplit.c
+/home/msakovych/C/filler/libft/ft_strsplit.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strstr.c
+/home/msakovych/C/filler/libft/ft_strstr.c
 
-/Users/msakovyc/filler/libft/ft_strsub.c
+/home/msakovych/C/filler/libft/ft_strsub.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_strtrim.c
+/home/msakovych/C/filler/libft/ft_strtrim.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/ft_swap.c
+/home/msakovych/C/filler/libft/ft_swap.c
 
-/Users/msakovyc/filler/libft/ft_tolower.c
+/home/msakovych/C/filler/libft/ft_tolower.c
 
-/Users/msakovyc/filler/libft/ft_toupper.c
+/home/msakovych/C/filler/libft/ft_toupper.c
 
-/Users/msakovyc/filler/libft/get_next_line.c
+/home/msakovych/C/filler/libft/get_next_line.c
 includes/libft.h
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 
-/Users/msakovyc/filler/libft/includes/libft.h
+/home/msakovych/C/filler/libft/includes/libft.h
 stdlib.h
 -
 unistd.h
@@ -246,7 +246,7 @@ string.h
 fcntl.h
 -
 
-/Users/msakovyc/filler/main.c
+/home/msakovych/C/filler/main.c
 filler.h
-/Users/msakovyc/filler/filler.h
+/home/msakovych/C/filler/filler.h
 
