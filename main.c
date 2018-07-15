@@ -65,14 +65,17 @@ int		fill_map(t_filler *p)
     p->map->t_y = (p->n == 2) ? p->map->t_y - p->piece->t_y : p->map->t_y + p->piece->t_y;
     p->x_result = p->map->t_x;
     p->y_result = p->map->t_y;
-	while (p->map->t_y >= 0 && p->map->t_y < p->map->y && p->piece->t_y >= 0 && p->piece->t_y < p->piece->y)
+	while (p->map->t_y + i >= 0 && p->map->t_y + i < p->map->y && p->piece->t_y + i >= 0 && p->piece->t_y + i < p->piece->y)
 	{
         int j = 0;
-		while (p->map->t_x >= 0 && p->map->t_x < p->map->x && p->piece->t_x >= 0 && p->piece->t_x < p->piece->x)
+		while (p->map->t_x + j >= 0 && p->map->t_x + j < p->map->x && p->piece->t_x + j >= 0 && p->piece->t_x + j < p->piece->x)
 		{
 			if (p->map->arr[p->map->t_y + i][p->map->t_x + j] != '.')
 				if (p->piece->arr[p->piece->t_y + i][p->piece->t_x + j] != '.')
-					return (0);
+                {
+                    printf("ERROR x = %d    y = %d",p->map->t_x + j, p->map->t_y + i);
+                    return (0);
+                }
 			(p->n == 2) ? j++ : j--;
         }
         if (j == 1 || j == -1)
