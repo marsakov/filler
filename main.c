@@ -59,6 +59,7 @@ void	find_place(t_data *ptr, int n, char c)
 
 int		fill_map(t_filler *p)
 {
+    int m = 0;
     int i = 0;
 
     p->map->t_x = (p->n == 2) ? p->map->t_x - p->piece->t_x : p->map->t_x + p->piece->t_x;
@@ -73,8 +74,8 @@ int		fill_map(t_filler *p)
 			if (p->map->arr[p->map->t_y + i][p->map->t_x + j] != '.')
 				if (p->piece->arr[p->piece->t_y + i][p->piece->t_x + j] != '.')
                 {
-                    printf("ERROR x = %d    y = %d",p->map->t_x + j, p->map->t_y + i);
-                    return (0);
+                    // printf("ERROR x = %d    y = %d",p->map->t_x + j, p->map->t_y + i);
+                    m++;
                 }
 			(p->n == 2) ? j++ : j--;
         }
@@ -85,8 +86,41 @@ int		fill_map(t_filler *p)
         }
 		(p->n == 2) ? i++ : i--;
 	}
-	return (0);
+    if (m != 1)
+        return (0);
+    if (p->n == 1)
+    {
+        p->x_result -= p->piece->x - 1;
+        p->y_result -= p->piece->y - 1;
+    }
+    return (1);
 }
+
+// int		fill_map(t_filler *p)
+// {
+//     p->map->t_x = (p->n == 2) ? p->map->t_x - p->piece->t_x : p->map->t_x + p->piece->t_x;
+//     p->map->t_y = (p->n == 2) ? p->map->t_y - p->piece->t_y : p->map->t_y + p->piece->t_y;
+//     p->x_result = p->map->t_x;
+//     p->y_result = p->map->t_y;
+// 	while (p->map->t_y >= 0 && p->map->t_y < p->map->y && p->piece->t_y >= 0 && p->piece->t_y < p->piece->y)
+// 	{
+// 		while (p->map->t_x >= 0 && p->map->t_x < p->map->x && p->piece->t_x >= 0 && p->piece->t_x < p->piece->x)
+// 		{
+// 			if (p->map->arr[p->map->t_y][p->map->t_x] != '.')
+// 				if (p->piece->arr[p->piece->t_y][p->piece->t_x] != '.')
+// 					return (0);
+// 			(p->n == 2) ? p->map->t_x++ : p->map->t_x--;
+// 			(p->n == 2) ? p->piece->t_x++ : p->piece->t_x--;
+// 		}
+//         if (p->map->t_x < 0 || p->piece->t_x < 0 || p->map->t_x == p->map->x || p->piece->t_x == p->piece->x)
+//         {
+
+//         }
+// 		(p->n == 2) ? p->map->t_y++ : p->map->t_y--;
+// 		(p->n == 2) ? p->piece->t_y++ : p->piece->t_y--;
+// 	}
+// 	return (1);
+// }
 
 int		main()
 {
@@ -151,13 +185,45 @@ int		main()
 		ptr.piece->t_x = (ptr.n == 2) ? 0 : ptr.piece->x - 1;
 		find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
 		find_place(ptr.piece, ptr.n, '*');
-		printf("place in map : x = %d | y = %d\n", ptr.map->t_x, ptr.map->t_y);
-		printf("place in piece : x = %d | y = %d\n", ptr.piece->t_x, ptr.piece->t_y);
+
+		// printf("place in map : x = %d | y = %d\n", ptr.map->t_x, ptr.map->t_y);
+		// printf("place in piece : x = %d | y = %d\n", ptr.piece->t_x, ptr.piece->t_y);
+
+		// find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
+		// find_place(ptr.piece, ptr.n, '*');
+		// printf("place in map : x = %d | y = %d\n", ptr.map->t_x, ptr.map->t_y);
+		// printf("place in piece : x = %d | y = %d\n", ptr.piece->t_x, ptr.piece->t_y);
+
 		while (!fill_map(&ptr))
 		{
-
+			if (ptr.n == 1 && ptr.piece->t_x == ptr.piece->x - 1)
+			{
+				ptr.map->t_x -= ptr.piece->t_x;
+				ptr.piece->t_x = 0;
+				ptr.map->t_y++;
+				ptr.piece->t_y++;
+			}
+			else if (ptr.n == 1)
+			{
+				ptr.map->t_x++;
+				ptr.piece->t_x++;
+			}
+			else if (ptr.n == 2 && ptr.piece->t_x == 0)
+			{
+				ptr.piece->t_x = ptr.piece->x - 1;
+				ptr.map->t_x += ptr.piece->t_x;
+				ptr.map->t_y--;
+				ptr.piece->t_y--;
+			}
+			else if (ptr.n == 2)
+			{
+				ptr.map->t_x--;
+				ptr.piece->t_x--;
+			}
 			find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
 			find_place(ptr.piece, ptr.n, '*');
+			// printf("place in map : x = %d | y = %d\n", ptr.map->t_x, ptr.map->t_y);
+			// printf("place in piece : x = %d | y = %d\n", ptr.piece->t_x, ptr.piece->t_y);
 		}
 		// printf("%d %d\n", ptr.x_coord, ptr.y_coord);
 

@@ -1,2 +1,6 @@
-seed = 1640
-O: timedout
+seed = 474
+O: error on input
+./../msakovyc.filler: Segfault at 0
+./players/abanlin.filler won
+Score:
+0AGAINST161
