@@ -1,6 +1,5 @@
-seed = 474
-O: error on input
-./../msakovyc.filler: Segfault at 0
+seed = 2306
+./../msakovyc.filler: Segfault at 1
 ./players/abanlin.filler won
 Score:
-0AGAINST161
+1AGAINST149
