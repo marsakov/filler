@@ -18,6 +18,7 @@ char	**writer(int x, int y, int piece)
 	char	*line;
 	int		i;
 
+int fd = open("test", O_WRONLY | O_APPEND);
 	i = 0;
 	map = malloc(sizeof(char*) * y);
 	while (i < y && GNL(0, &line) > 0)
@@ -27,16 +28,19 @@ char	**writer(int x, int y, int piece)
 			ft_strcpy(map[i++], line);
 		else
 			ft_strcpy(map[i++], line + 4);
+		/////////////////////
+		write(fd, line, ft_strlen(line));
+		write(fd, "\n", 1);
+		////////////////////
 		free(line);
 	}
 	return (map);
 }
 
-void	find_place(t_data *ptr, int n, char c)
+int		find_place(t_data *ptr, int n, char c)
 {
 	int		i;
 	int		j;
-
 
 	i = ptr->t_y;
 	while (ptr->arr[i])
@@ -48,13 +52,14 @@ void	find_place(t_data *ptr, int n, char c)
 			{
 				ptr->t_x = j;
 				ptr->t_y = i;
-				return ;
+				return (0);
 			}
 			(n == 2) ? j++ : j--;
 		}
 		j = (n == 2) ? 0 : ptr->x - 1;
 		(n == 2) ? i++ : i--;
 	}
+	return (0);
 }
 
 int		fill_map(t_filler *ptr)
@@ -94,24 +99,36 @@ int		main(void)
 	char		*line;
 	t_filler	ptr;
 
+	int fd = open("test", O_WRONLY | O_APPEND);
+
     ptr.map = (t_data*)malloc(sizeof(t_data));
     ptr.piece = (t_data*)malloc(sizeof(t_data));
 
+    GNL(0, &line);
+	ptr.n = *(ft_strchr(line,'p') + 1) - '0';
+	free(line);
 	while (GNL(0, &line) > 0)
 	{
-		ptr.n = *(ft_strchr(line,'p') + 1) - '0';
-		free(line);
-		GNL(0, &line);
+		///////////////
+		write(fd, line, ft_strlen(line));
+		write(fd, "\n", 1);
+		///////////////
 		ptr.map->y = ft_atoi(ft_strchr(line, ' '));
 		ptr.map->x = ft_atoi(ft_strrchr(line, ' '));
 		free(line);
 		GNL(0, &line);
+		////////////////
+		write(fd, line, ft_strlen(line));
+		write(fd, "\n", 1);
+		////////////////
 		free(line);
 		ptr.map->arr = writer(ptr.map->x, ptr.map->y, 0);
 
-
-
 		GNL(0, &line);
+		///////////////
+		write(fd, line, ft_strlen(line));
+		write(fd, "\n", 1);
+		//////////////
 		ptr.piece->y = ft_atoi(ft_strchr(line, ' '));
 		ptr.piece->x = ft_atoi(ft_strrchr(line, ' '));
 		ptr.piece->arr = writer(ptr.piece->x, ptr.piece->y, 1);
@@ -122,34 +139,48 @@ int		main(void)
 		ptr.piece->t_x = 0;
 		find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
 		find_place(ptr.piece, 2, '*');
-
 		// printf("map place : x = %d | y = %d\n", ptr.map->t_x, ptr.map->t_y);
 		while (!fill_map(&ptr))
 		{
 			if (ptr.n == 1 && ptr.map->t_x == ptr.map->x - 1)
 			{
 				ptr.map->t_x = 0;
-				ptr.map->t_y++;
+				ptr.map->t_y--;
 				if (ptr.map->t_y == ptr.map->y)
-					break ;
+				{
+					printf("if1\n");
+					return (0);
+				}
 			}
 			else if (ptr.n == 1)
-				ptr.map->t_x++;
+				ptr.map->t_x--;
 			else if (ptr.n == 2 && ptr.map->t_x == 0)
 			{
 				ptr.map->t_x = ptr.map->x - 1;
-				ptr.map->t_y--;
+				ptr.map->t_y++;
 				if (ptr.map->t_y < 0)
-					break ;
+				{
+					printf("if2\n");
+					return (0);
+				}
 			}
 			else if (ptr.n == 2)
-				ptr.map->t_x--;
-			find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
+				ptr.map->t_x++;
+			if (!find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O'))
+			{
+				printf("if3\n");
+				return (0);
+			}
 		}
 		ft_putnbr(ptr.map->t_y - ptr.piece->t_y);
 		ft_putchar(' ');
 		ft_putnbr(ptr.map->t_x - ptr.piece->t_x);
 		ft_putchar('\n');
+
+		ft_putnbr_fd(ptr.map->t_y - ptr.piece->t_y, fd);
+		ft_putchar_fd(' ', fd);
+		ft_putnbr_fd(ptr.map->t_x - ptr.piece->t_x, fd);
+		ft_putchar_fd('\n', fd);
 	}
 	return (0);
 }
