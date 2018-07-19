@@ -29,6 +29,7 @@ typedef struct		s_filler
 	struct	s_data	*piece;
 	struct	s_data	*map;
 	int				n;
+	int				stars;
 }					t_filler;
 
 char			**writer(int x, int y, int piece);

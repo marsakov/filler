@@ -37,22 +37,44 @@ int fd = open("test", O_WRONLY | O_APPEND);
 	return (map);
 }
 
+void	count_stars(t_filler *ptr)
+{
+	int		i;
+	int		j;
+	int		counter;
+
+	counter = 0;
+	i = 0;
+	while (i < ptr->piece->y)
+	{
+		j = 0;
+		while (j < ptr->piece->x)
+		{
+			if (ptr->piece->arr[i][j] == '*')
+				counter++;
+			j++;
+		}
+		i++;
+	}
+	ptr->stars = counter;
+}
+
 int		find_place(t_data *ptr, int n, char c)
 {
 	int		i;
 	int		j;
 
 	i = ptr->t_y;
-	while (ptr->arr[i])
+    j = ptr->t_x;
+	while (i < ptr->y && i >= 0)
 	{
-		j = ptr->t_x;
-		while (ptr->arr[i][j])
+		while (j < ptr->x && j >= 0)
 		{
-			if (ptr->arr[i][j] == c || ptr->arr[i][j] == ft_tolower(c))
+			if (ptr->arr[i][j] == c)
 			{
 				ptr->t_x = j;
 				ptr->t_y = i;
-				return (0);
+				return (1);
 			}
 			(n == 2) ? j++ : j--;
 		}
@@ -62,36 +84,67 @@ int		find_place(t_data *ptr, int n, char c)
 	return (0);
 }
 
-int		fill_map(t_filler *ptr)
+int		fill_map(t_filler *p, int i, int counter)
 {
-	int	i;
 	int	j;
 	int x_p;
 	int x_m;
 
-	i = 0;
-	x_m = ptr->map->t_x;
-	x_p = ptr->piece->t_x;
-	while (ptr->map->t_y + i < ptr->map->y && ptr->piece->t_y + i < ptr->piece->y)
+	x_m = p->map->t_x;
+	x_p = p->piece->t_x;
+	while (p->map->t_y + ++i < p->map->y && p->piece->t_y + i < p->piece->y)
 	{
-		j = 0;
-		while (x_m + j < ptr->map->x && x_p + i < ptr->piece->x)
+		j = -1;
+		while (x_m + ++j < p->map->x && x_p + j < p->piece->x)
 		{
-			if (ptr->map->arr[ptr->map->t_y + i][x_m + j] != '.')
-				if (ptr->piece->arr[ptr->piece->t_y + i][x_p + j] != '.')
-					if (!(i == 0 && j == 0))
-						return (0);
-			j++;
+			if (p->map->arr[p->map->t_y + i][x_m + j] != '.' &&
+	p->piece->arr[p->piece->t_y + i][x_p + j] != '.' &&  !(i == 0 && j == 0))
+				 return (0);
+			else if (p->piece->arr[p->piece->t_y + i][x_p + j] == '*')
+				counter++; 
 		}
-		if (i == 0 && x_p + j == ptr->piece->x)
+		if (i == 0 && x_p + j == p->piece->x)
 		{
 			x_m -= x_p;
 			x_p = 0;
 		}
-		i++;
 	}
-	// printf("fill ok\n");
-	return (1);
+	return (counter == p->stars) ? (1) : (0);
+}
+
+void	loop_writer(char *line, t_filler *ptr)
+{
+	int fd = open("test", O_WRONLY | O_APPEND);
+	///////////////
+	write(fd, line, ft_strlen(line));
+	write(fd, "\n", 1);
+	///////////////
+	ptr->map->y = ft_atoi(ft_strchr(line, ' '));
+	ptr->map->x = ft_atoi(ft_strrchr(line, ' '));
+	free(line);
+	GNL(0, &line);
+	////////////////
+	write(fd, line, ft_strlen(line));
+	write(fd, "\n", 1);
+	////////////////
+	free(line);
+	ptr->map->arr = writer(ptr->map->x, ptr->map->y, 0);
+
+	GNL(0, &line);
+	///////////////
+	write(fd, line, ft_strlen(line));
+	write(fd, "\n", 1);
+	//////////////
+	ptr->piece->y = ft_atoi(ft_strchr(line, ' '));
+	ptr->piece->x = ft_atoi(ft_strrchr(line, ' '));
+	ptr->piece->arr = writer(ptr->piece->x, ptr->piece->y, 1);
+	count_stars(ptr);
+	ptr->map->t_y = (ptr->n == 2) ? 0 : ptr->map->y - 1;
+	ptr->map->t_x = (ptr->n == 2) ? 0 : ptr->map->x - 1;
+	ptr->piece->t_y = 0;
+	ptr->piece->t_x = 0;
+	find_place(ptr->map, ptr->n, ptr->n == 2 ? 'X' : 'O');
+	find_place(ptr->piece, 2, '*');
 }
 
 int		main(void)
@@ -109,48 +162,16 @@ int		main(void)
 	free(line);
 	while (GNL(0, &line) > 0)
 	{
-		///////////////
-		write(fd, line, ft_strlen(line));
-		write(fd, "\n", 1);
-		///////////////
-		ptr.map->y = ft_atoi(ft_strchr(line, ' '));
-		ptr.map->x = ft_atoi(ft_strrchr(line, ' '));
-		free(line);
-		GNL(0, &line);
-		////////////////
-		write(fd, line, ft_strlen(line));
-		write(fd, "\n", 1);
-		////////////////
-		free(line);
-		ptr.map->arr = writer(ptr.map->x, ptr.map->y, 0);
-
-		GNL(0, &line);
-		///////////////
-		write(fd, line, ft_strlen(line));
-		write(fd, "\n", 1);
-		//////////////
-		ptr.piece->y = ft_atoi(ft_strchr(line, ' '));
-		ptr.piece->x = ft_atoi(ft_strrchr(line, ' '));
-		ptr.piece->arr = writer(ptr.piece->x, ptr.piece->y, 1);
-
-		ptr.map->t_y = (ptr.n == 2) ? 0 : ptr.map->y - 1;
-		ptr.map->t_x = (ptr.n == 2) ? 0 : ptr.map->x - 1;
-		ptr.piece->t_y = 0;
-		ptr.piece->t_x = 0;
-		find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
-		find_place(ptr.piece, 2, '*');
-		// printf("map place : x = %d | y = %d\n", ptr.map->t_x, ptr.map->t_y);
-		while (!fill_map(&ptr))
+		loop_writer(line, &ptr);
+		while (!fill_map(&ptr, -1, 0))
 		{
+			printf("dsfb\n");
 			if (ptr.n == 1 && ptr.map->t_x == ptr.map->x - 1)
 			{
 				ptr.map->t_x = 0;
 				ptr.map->t_y--;
 				if (ptr.map->t_y == ptr.map->y)
-				{
-					printf("if1\n");
 					return (0);
-				}
 			}
 			else if (ptr.n == 1)
 				ptr.map->t_x--;
@@ -159,18 +180,18 @@ int		main(void)
 				ptr.map->t_x = ptr.map->x - 1;
 				ptr.map->t_y++;
 				if (ptr.map->t_y < 0)
-				{
-					printf("if2\n");
 					return (0);
-				}
 			}
 			else if (ptr.n == 2)
 				ptr.map->t_x++;
 			if (!find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O'))
-			{
-				printf("if3\n");
-				return (0);
-			}
+            {
+//            	ptr.map->t_y = (ptr.n == 2) ? 0 : ptr.map->y - 1;
+//				ptr.map->t_x = (ptr.n == 2) ? 0 : ptr.map->x - 1;
+//				find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
+                ptr.map->t_y -= ptr.piece->y - 1 + ptr.piece->t_y;
+                ptr.map->t_x -= ptr.piece->x - 1 + ptr.piece->t_x;
+            }
 		}
 		ft_putnbr(ptr.map->t_y - ptr.piece->t_y);
 		ft_putchar(' ');
