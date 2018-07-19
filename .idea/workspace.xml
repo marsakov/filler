@@ -11,19 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="851c3950-31d6-489c-957a-d443ea719f7b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/filler2.dir/main.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/filler2.dir/main.c.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/filler2" afterPath="$PROJECT_DIR$/cmake-build-debug/filler2" />
-      <change beforePath="$PROJECT_DIR$/filler.h" afterPath="$PROJECT_DIR$/filler.h" />
-      <change beforePath="$PROJECT_DIR$/libft/libft.a" afterPath="$PROJECT_DIR$/libft/libft.a" />
-      <change beforePath="$PROJECT_DIR$/main.c" afterPath="$PROJECT_DIR$/main.c" />
-      <change beforePath="$PROJECT_DIR$/msakovyc.filler" afterPath="$PROJECT_DIR$/msakovyc.filler" />
-      <change beforePath="$PROJECT_DIR$/resources/filler.trace" afterPath="$PROJECT_DIR$/resources/filler.trace" />
-      <change beforePath="$PROJECT_DIR$/resources/test" afterPath="$PROJECT_DIR$/resources/test" />
-    </list>
+    <list default="true" id="851c3950-31d6-489c-957a-d443ea719f7b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -254,12 +242,12 @@
       <workItem from="1531912798561" duration="519000" />
       <workItem from="1531932842344" duration="666000" />
       <workItem from="1531990398897" duration="6730000" />
-      <workItem from="1532013508675" duration="1120000" />
+      <workItem from="1532013508675" duration="1212000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25966000" />
+    <option name="totallyTimeSpent" value="26058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
