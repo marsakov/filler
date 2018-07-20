@@ -147,29 +147,6 @@ void	loop_writer(char *line, t_filler *ptr)
 	find_place(ptr->piece, 2, '*');
 }
 
-int     change_coord(t_filler *ptr)
-{
-    if (ptr->n == 1 && ptr->map->t_x == ptr->map->x - 1)
-    {
-        ptr->map->t_x = 0;
-        ptr->map->t_y--;
-        if (ptr->map->t_y == ptr->map->y)
-            return (0);
-    }
-    else if (ptr->n == 1)
-        ptr->map->t_x--;
-    else if (ptr->n == 2 && ptr->map->t_x == 0)
-    {
-        ptr->map->t_x = ptr->map->x - 1;
-        ptr->map->t_y++;
-        if (ptr->map->t_y < 0)
-            return (0);
-    }
-    else if (ptr->n == 2)
-        ptr->map->t_x++;
-    return (1);
-}
-
 int		main(void)
 {
 	char		*line;
@@ -188,17 +165,33 @@ int		main(void)
 		loop_writer(line, &ptr);
 		while (!fill_map(&ptr, -1, 0))
 		{
-            ptr.map->t_y -= ptr.piece->y - 1 + ptr.piece->t_y;
-            ptr.map->t_x -= ptr.piece->x - 1 + ptr.piece->t_x;
-            if (!fill_map(&ptr, -1, 0))
+			printf("dsfb\n");
+			if (ptr.n == 1 && ptr.map->t_x == ptr.map->x - 1)
+			{
+				ptr.map->t_x = 0;
+				ptr.map->t_y--;
+				if (ptr.map->t_y == ptr.map->y)
+					return (0);
+			}
+			else if (ptr.n == 1)
+				ptr.map->t_x--;
+			else if (ptr.n == 2 && ptr.map->t_x == 0)
+			{
+				ptr.map->t_x = ptr.map->x - 1;
+				ptr.map->t_y++;
+				if (ptr.map->t_y < 0)
+					return (0);
+			}
+			else if (ptr.n == 2)
+				ptr.map->t_x++;
+			if (!find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O'))
             {
-                ptr.map->t_y += ptr.piece->y - 1 + ptr.piece->t_y;
-                ptr.map->t_x += ptr.piece->x - 1 + ptr.piece->t_x;
-                change_coord(&ptr);
-				find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
+//            	ptr.map->t_y = (ptr.n == 2) ? 0 : ptr.map->y - 1;
+//				ptr.map->t_x = (ptr.n == 2) ? 0 : ptr.map->x - 1;
+//				find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
+                ptr.map->t_y -= ptr.piece->y - 1 + ptr.piece->t_y;
+                ptr.map->t_x -= ptr.piece->x - 1 + ptr.piece->t_x;
             }
-            else
-                break ;
 		}
 		ft_putnbr(ptr.map->t_y - ptr.piece->t_y);
 		ft_putchar(' ');

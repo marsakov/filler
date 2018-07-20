@@ -65,7 +65,7 @@ int		find_place(t_data *ptr, int n, char c)
 	int		j;
 
 	i = ptr->t_y;
-    j = ptr->t_x;
+	j = ptr->t_x;
 	while (i < ptr->y && i >= 0)
 	{
 		while (j < ptr->x && j >= 0)
@@ -84,7 +84,7 @@ int		find_place(t_data *ptr, int n, char c)
 	return (0);
 }
 
-int		fill_map(t_filler *p, int i, int counter)
+int		fill_map(t_filler *p, int i, int counter, int n)
 {
 	int	j;
 	int x_p;
@@ -92,22 +92,24 @@ int		fill_map(t_filler *p, int i, int counter)
 
 	x_m = p->map->t_x;
 	x_p = p->piece->t_x;
-	while (p->map->t_y + ++i < p->map->y && p->piece->t_y + i < p->piece->y)
+	while (p->map->t_y + i >= 0 && p->map->t_y + i < p->map->y && p->piece->t_y - i >= 0 && p->piece->t_y - i < p->piece->y)
 	{
-		j = -1;
-		while (x_m + ++j < p->map->x && x_p + j < p->piece->x)
+		j = 0;
+		while (x_m + j >= 0 && x_m + j < p->map->x && x_p - j >= 0 && x_p - j < p->piece->x)
 		{
 			if (p->map->arr[p->map->t_y + i][x_m + j] != '.' &&
-	p->piece->arr[p->piece->t_y + i][x_p + j] != '.' &&  !(i == 0 && j == 0))
+	p->piece->arr[p->piece->t_y - i][x_p - j] != '.' &&  !(i == 0 && j == 0))
 				 return (0);
-			else if (p->piece->arr[p->piece->t_y + i][x_p + j] == '*')
+			else if (p->piece->arr[p->piece->t_y - i][x_p - j] == '*')
 				counter++; 
+			(n == 2) ? j++ : j--;
 		}
-		if (i == 0 && x_p + j == p->piece->x)
+		if (i == 0 && x_p - j == p->piece->x)
 		{
-			x_m -= x_p;
-			x_p = 0;
+			x_m = (p->n == 1) ? x_m - x_p : x_m + x_p;
+			x_p = (p->n == 1) ? 0 : p->piece->x - 1;
 		}
+		(n == 2) ? i++ : i--;
 	}
 	return (counter == p->stars) ? (1) : (0);
 }
@@ -141,10 +143,33 @@ void	loop_writer(char *line, t_filler *ptr)
 	count_stars(ptr);
 	ptr->map->t_y = (ptr->n == 2) ? 0 : ptr->map->y - 1;
 	ptr->map->t_x = (ptr->n == 2) ? 0 : ptr->map->x - 1;
-	ptr->piece->t_y = 0;
-	ptr->piece->t_x = 0;
+	ptr->piece->t_y = (ptr->n == 1) ? 0 : ptr->piece->y - 1;
+	ptr->piece->t_x = (ptr->n == 1) ? 0 : ptr->piece->x - 1;
 	find_place(ptr->map, ptr->n, ptr->n == 2 ? 'X' : 'O');
-	find_place(ptr->piece, 2, '*');
+	find_place(ptr->piece, ptr->n == 2 ? 1 : 2, '*');
+}
+
+int     change_coord(t_filler *ptr)
+{
+	if (ptr->n == 1 && ptr->map->t_x == ptr->map->x - 1)
+	{
+		ptr->map->t_x = 0;
+		ptr->map->t_y--;
+		if (ptr->map->t_y == ptr->map->y)
+			return (0);
+	}
+	else if (ptr->n == 1)
+		ptr->map->t_x--;
+	else if (ptr->n == 2 && ptr->map->t_x == 0)
+	{
+		ptr->map->t_x = ptr->map->x - 1;
+		ptr->map->t_y++;
+		if (ptr->map->t_y < 0)
+			return (0);
+	}
+	else if (ptr->n == 2)
+		ptr->map->t_x++;
+	return (1);
 }
 
 int		main(void)
@@ -154,44 +179,31 @@ int		main(void)
 
 	int fd = open("test", O_WRONLY | O_APPEND);
 
-    ptr.map = (t_data*)malloc(sizeof(t_data));
-    ptr.piece = (t_data*)malloc(sizeof(t_data));
+	ptr.map = (t_data*)malloc(sizeof(t_data));
+	ptr.piece = (t_data*)malloc(sizeof(t_data));
 
-    GNL(0, &line);
+	GNL(0, &line);
 	ptr.n = *(ft_strchr(line,'p') + 1) - '0';
 	free(line);
 	while (GNL(0, &line) > 0)
 	{
 		loop_writer(line, &ptr);
-		while (!fill_map(&ptr, -1, 0))
+		while (!fill_map(&ptr, 0, 0, ptr.n))
 		{
-			printf("dsfb\n");
-			if (ptr.n == 1 && ptr.map->t_x == ptr.map->x - 1)
+			ptr.piece->t_y = (ptr.n == 2) ? 0 : ptr.piece->y - 1;
+			ptr.piece->t_x = (ptr.n == 2) ? 0 : ptr.piece->y - 1;
+			find_place(ptr.piece, ptr.n, '*');
+			if (!fill_map(&ptr, 0, 0, ptr.n == 2 ? 'X' : 'O'))
 			{
-				ptr.map->t_x = 0;
-				ptr.map->t_y--;
-				if (ptr.map->t_y == ptr.map->y)
+				ptr.piece->t_y = (ptr.n == 1) ? 0 : ptr.piece->y - 1;
+				ptr.piece->t_x = (ptr.n == 1) ? 0 : ptr.piece->y - 1;
+				find_place(ptr.piece, ptr.n, '*');
+				if (!change_coord(&ptr))
 					return (0);
+				find_place(ptr.map, ptr.n == 2 ? 1 : 2, ptr.n == 2 ? 'X' : 'O');
 			}
-			else if (ptr.n == 1)
-				ptr.map->t_x--;
-			else if (ptr.n == 2 && ptr.map->t_x == 0)
-			{
-				ptr.map->t_x = ptr.map->x - 1;
-				ptr.map->t_y++;
-				if (ptr.map->t_y < 0)
-					return (0);
-			}
-			else if (ptr.n == 2)
-				ptr.map->t_x++;
-			if (!find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O'))
-            {
-//            	ptr.map->t_y = (ptr.n == 2) ? 0 : ptr.map->y - 1;
-//				ptr.map->t_x = (ptr.n == 2) ? 0 : ptr.map->x - 1;
-//				find_place(ptr.map, ptr.n, ptr.n == 2 ? 'X' : 'O');
-                ptr.map->t_y -= ptr.piece->y - 1 + ptr.piece->t_y;
-                ptr.map->t_x -= ptr.piece->x - 1 + ptr.piece->t_x;
-            }
+			else
+				break ;
 		}
 		ft_putnbr(ptr.map->t_y - ptr.piece->t_y);
 		ft_putchar(' ');
