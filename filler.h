@@ -11,28 +11,39 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <math.h>
 #include "libft/includes/libft.h"
 
 # define GNL(fd, ln) get_next_line(fd, &line)
 
-typedef struct	s_data
+typedef struct		s_coord
 {
-	int			x;
-	int			y;
-	int			t_x;
-	int			t_y;
-	char		**arr;
-}				t_data;
+	int				x;
+	int				y;
+}					t_coord;
+
+typedef struct		s_data
+{
+	int				x;
+	int				y;
+	char			**arr;
+}					t_data;
 
 typedef struct		s_filler
 {
 	struct	s_data	*piece;
 	struct	s_data	*map;
-	int				n;
+	struct	s_coord	*player_coord;
+	struct	s_coord	*enemy_coord;
+	int				counter_p;
+	int				counter_e;
 	int				stars;
+	struct s_coord	start_p;
+	struct s_coord	result;
+	int				n;
 }					t_filler;
 
-char			**writer(int x, int y, int piece);
+char				**writer(int x, int y, int piece);
 
 
 /*
