@@ -30,17 +30,21 @@ void	count_stars(t_filler *ptr)
 	ptr->stars = 0;
 	ptr->start_p.y = -1;
 	while (++(ptr->start_p.y) < ptr->piece->y)
+	{
 		ptr->start_p.x = -1;
 		while (++(ptr->start_p.x) < ptr->piece->x)
 			if (ptr->piece->arr[ptr->start_p.y][ptr->start_p.x] == '*')
 				ptr->stars++;
+	}
 
 	ptr->start_p.y = -1;
 	while (++(ptr->start_p.y) < ptr->piece->y)
+	{
 		ptr->start_p.x = -1;
 		while (++(ptr->start_p.x) < ptr->piece->x)
 			if (ptr->piece->arr[ptr->start_p.y][ptr->start_p.x] == '*')
 				return ;
+	}
 }
 
 void	count_elems(t_filler *ptr)
@@ -85,11 +89,19 @@ void	mem_elems(t_filler *ptr)
 		while (coord.x < ptr->map->x)
 		{
 			if (ptr->map->arr[coord.y][coord.x] == 'O')
-				(ptr->n == 1 ? ptr->player_coord[p++] = coord :
-					ptr->enemy_coord[e++] = coord);
-			else (ptr->map->arr[coord.y][coord.x] == 'X')
-				(ptr->n == 2 ? ptr->player_coord[p++] = coord :
-					ptr->enemy_coord[e++] = coord);
+			{
+				if (ptr->n == 1)
+					ptr->player_coord[p++] = coord;
+				else
+					ptr->enemy_coord[e++] = coord;
+			}
+			else if (ptr->map->arr[coord.y][coord.x] == 'X')
+			{
+				if (ptr->n == 2)
+					ptr->player_coord[p++] = coord;
+				else
+					ptr->enemy_coord[e++] = coord;
+			}
 			coord.x++;
 		}
 		coord.y++;
@@ -102,6 +114,7 @@ int		coord_valid(t_filler p, t_coord coord)
 	int	j;
 	int counter;
 
+	counter = 0;
 	i = 0;
 	while (coord.y + i >= 0 && coord.y + i < p.map->y && p.start_p.y + i >= 0 && p.start_p.y + i < p.piece->y)
 	{
@@ -132,18 +145,22 @@ int		shortcut(t_filler *ptr)
 	int		shortcut;
 	int		current;
 
-	shortcut = 0;
+	shortcut = ptr->map->x + ptr->map->y;
 	p = 0;
 	ft_bzero(&(ptr->result), sizeof(t_coord));
 	while (p < ptr->counter_p)
 	{
 		e = 0;
-		while (e < ptr->counter_p)
+		while (e < ptr->counter_e)
 		{
 			current = fabs(ptr->player_coord[p].x - ptr->enemy_coord[e].x)
 					+ fabs(ptr->player_coord[p].y - ptr->enemy_coord[e].y);
+			printf("coord player : x = %d; y = %d\n", ptr->player_coord[p].x, ptr->player_coord[p].y);
+			printf("coord enemy  : x = %d; y = %d\n", ptr->enemy_coord[e].x, ptr->enemy_coord[e].y);
+			printf("current  = %d | shortcut = %d\n", current, shortcut);
 			if (current <= shortcut && coord_valid(*ptr, ptr->player_coord[p]))
 			{
+				printf("coord valid | current shortcut = %d\n", current);
 				ptr->result = ptr->player_coord[p];
 				shortcut = current;
 			}
@@ -151,7 +168,7 @@ int		shortcut(t_filler *ptr)
 		}
 		p++;
 	}
-	return (shortcut);
+	return ((shortcut == ptr->map->x + ptr->map->y) ? 0 : 1);
 }
 
 void	loop_writer(char *line, t_filler *ptr)
