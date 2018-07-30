@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.9)
-project(filler2)
+project(filler)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(filler2
+add_executable(filler
         libft/includes/libft.h
         libft/ft_atoi.c
         libft/ft_atoi_base.c
@@ -72,4 +72,4 @@ add_executable(filler2
         libft/ft_toupper.c
         libft/get_next_line.c
         filler.h
-        main.c)
+        untitled.c)

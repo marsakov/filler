@@ -11,7 +11,7 @@
 #******************************************************************************#
 
 NAME = msakovyc.filler
-SRCS = main.c
+SRCS = untitled.c
 FLAGS = -Wall -Werror -Wextra
 
 OBJS = $(SRCS:.c=.o)

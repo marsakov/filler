@@ -135,7 +135,7 @@ CMAKE_OSX_DEPLOYMENT_TARGET:STRING=
 CMAKE_OSX_SYSROOT:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=filler2
+CMAKE_PROJECT_NAME:STATIC=filler
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
@@ -190,10 +190,10 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
 
 //Value Computed by CMake
-filler2_BINARY_DIR:STATIC=/Users/msakovyc/filler/cmake-build-debug
+filler_BINARY_DIR:STATIC=/Users/msakovyc/filler/cmake-build-debug
 
 //Value Computed by CMake
-filler2_SOURCE_DIR:STATIC=/Users/msakovyc/filler
+filler_SOURCE_DIR:STATIC=/Users/msakovyc/filler
 
 
 ########################

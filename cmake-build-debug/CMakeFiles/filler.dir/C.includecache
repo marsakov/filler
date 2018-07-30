@@ -9,6 +9,8 @@
 /Users/msakovyc/filler/filler.h
 stdio.h
 -
+math.h
+-
 libft/includes/libft.h
 /Users/msakovyc/filler/libft/includes/libft.h
 
@@ -246,7 +248,7 @@ string.h
 fcntl.h
 -
 
-/Users/msakovyc/filler/main.c
+/Users/msakovyc/filler/untitled.c
 filler.h
 /Users/msakovyc/filler/filler.h
 

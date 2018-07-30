@@ -5,8 +5,7 @@ char	**writer(int x, int y, int piece)
 	char	**map;
 	char	*line;
 	int		i;
-
-	// int fd = open("test", O_WRONLY | O_APPEND);
+	
 	i = 0;
 	map = malloc(sizeof(char*) * y);
 	while (i < y && GNL(0, &line) > 0)
@@ -16,10 +15,6 @@ char	**writer(int x, int y, int piece)
 			ft_strcpy(map[i++], line);
 		else
 			ft_strcpy(map[i++], line + 4);
-		// /////////////////////
-		// write(fd, line, ft_strlen(line));
-		// write(fd, "\n", 1);
-		// ////////////////////
 		free(line);
 	}
 	return (map);
@@ -28,23 +23,38 @@ char	**writer(int x, int y, int piece)
 void	count_stars(t_filler *ptr)
 {
 	ptr->stars = 0;
-	ptr->start_p.y = -1;
-	while (++(ptr->start_p.y) < ptr->piece->y)
+	ptr->p_s.y = -1;
+	while (++(ptr->p_s.y) < ptr->piece->y)
 	{
-		ptr->start_p.x = -1;
-		while (++(ptr->start_p.x) < ptr->piece->x)
-			if (ptr->piece->arr[ptr->start_p.y][ptr->start_p.x] == '*')
+		ptr->p_s.x = -1;
+		while (++(ptr->p_s.x) < ptr->piece->x)
+			if (ptr->piece->arr[ptr->p_s.y][ptr->p_s.x] == '*')
 				ptr->stars++;
 	}
+}
 
-	ptr->start_p.y = -1;
-	while (++(ptr->start_p.y) < ptr->piece->y)
+int		find_star(t_filler *ptr, int n)
+{
+	int		i;
+	int		j;
+
+	i = (n == 1 || n == 3) ? 0 : ptr->piece->y - 1;
+	while (i < ptr->piece->y && i >= 0)
 	{
-		ptr->start_p.x = -1;
-		while (++(ptr->start_p.x) < ptr->piece->x)
-			if (ptr->piece->arr[ptr->start_p.y][ptr->start_p.x] == '*')
-				return ;
+		j = (n == 1 || n == 4) ? 0 : ptr->piece->x - 1;
+		while (j < ptr->piece->x && j >= 0)
+		{
+			if (ptr->piece->arr[i][j] == '*')
+			{
+				ptr->p_s.x = j;
+				ptr->p_s.y = i;
+				return (1);
+			}
+			(n == 1 || n == 4) ? j++ : j--;
+		}
+		(n == 1 || n == 3) ? i++ : i--;
 	}
+	return (0);
 }
 
 void	count_elems(t_filler *ptr)
@@ -74,19 +84,15 @@ void	count_elems(t_filler *ptr)
 	ptr->enemy_coord = malloc(sizeof(t_coord) * ptr->counter_e);
 }
 
-void	mem_elems(t_filler *ptr)
+void	mem_elems(t_filler *ptr, int p, int e)
 {
 	t_coord coord;
-	int		p;
-	int		e;
 
-	p = 0;
-	e = 0;
-	coord.y = 0;
-	while (coord.y < ptr->map->y)
+	coord.y = -1;
+	while (++coord.y < ptr->map->y)
 	{
-		coord.x = 0;
-		while (coord.x < ptr->map->x)
+		coord.x = -1;
+		while (++coord.x < ptr->map->x)
 		{
 			if (ptr->map->arr[coord.y][coord.x] == 'O')
 			{
@@ -102,40 +108,44 @@ void	mem_elems(t_filler *ptr)
 				else
 					ptr->enemy_coord[e++] = coord;
 			}
-			coord.x++;
 		}
-		coord.y++;
 	}
 }
 
-int		coord_valid(t_filler p, t_coord coord)
+int		fill_map(t_filler p, t_coord c, int n, int counter)
 {
 	int i;
 	int	j;
-	int counter;
 
-	counter = 0;
 	i = 0;
-	while (coord.y + i >= 0 && coord.y + i < p.map->y && p.start_p.y + i >= 0 && p.start_p.y + i < p.piece->y)
+	while (c.y + i >= 0 && c.y + i < Ym && sYp + i >= 0 && sYp + i < Yp)
 	{
 		j = 0;
-		while (coord.x + j >= 0 && coord.x + j < p.map->x && p.start_p.x + j >= 0 && p.start_p.x + j < p.piece->x)
+		while (c.x + j >= 0 && c.x + j < Xm && sXp + j >= 0 && sXp + j < Xp)
 		{
-			if (p.map->arr[coord.y + i][coord.x + j] != '.' &&
-	p.piece->arr[p.start_p.y + i][p.start_p.x + j] != '.' && !(i == 0 && j == 0))
+			if (p.map->arr[c.y + i][c.x + j] != '.' &&
+			p.piece->arr[sYp + i][sXp + j] != '.' && !(i == 0 && j == 0))
 				 return (0);
-			else if (p.piece->arr[p.start_p.y + i][p.start_p.x + j] == '*')
+			if (p.piece->arr[sYp + i][sXp + j] == '*')
 				counter++; 
-			j++;
+			(n == 1 || n == 4) ? j++ : j--;
 		}
-		if (i == 0 && p.start_p.x + j == p.piece->x)
+		if (i == 0 && (((n == 1 || n == 4) && sXp + j == Xp) ||
+			((n == 2 || n == 3) && sXp + j == -1)))
 		{
-			coord.x -= p.start_p.x;
-			p.start_p.x = 0;
+			c.x = (n == 1 || n == 4) ? c.x - sXp : c.x + (Xp - 1 - sXp);
+			sXp = (n == 1 || n == 4) ? 0 : Xp - 1;
 		}
-		i++;
+		(n == 1 || n == 3) ? i++ : i--;
 	}
 	return (counter == p.stars) ? (1) : (0);
+}
+
+void	mem_res(t_filler *ptr, int *shortcut, int p, int current)
+{
+	ptr->result.x = ptr->player_coord[p].x - ptr->p_s.x;
+	ptr->result.y = ptr->player_coord[p].y - ptr->p_s.y;
+	*shortcut = current;
 }
 
 int		shortcut(t_filler *ptr)
@@ -153,16 +163,18 @@ int		shortcut(t_filler *ptr)
 		e = 0;
 		while (e < ptr->counter_e)
 		{
-			current = fabs(ptr->player_coord[p].x - ptr->enemy_coord[e].x)
-					+ fabs(ptr->player_coord[p].y - ptr->enemy_coord[e].y);
-			printf("coord player : x = %d; y = %d\n", ptr->player_coord[p].x, ptr->player_coord[p].y);
-			printf("coord enemy  : x = %d; y = %d\n", ptr->enemy_coord[e].x, ptr->enemy_coord[e].y);
-			printf("current  = %d | shortcut = %d\n", current, shortcut);
-			if (current <= shortcut && coord_valid(*ptr, ptr->player_coord[p]))
+			current = abs(ptr->player_coord[p].x - ptr->enemy_coord[e].x)
+					+ abs(ptr->player_coord[p].y - ptr->enemy_coord[e].y);
+			if (current <= shortcut)
 			{
-				printf("coord valid | current shortcut = %d\n", current);
-				ptr->result = ptr->player_coord[p];
-				shortcut = current;
+				if (find_star(ptr, 1) && fill_map(*ptr, ptr->player_coord[p], 1, 0))
+					mem_res(ptr, &shortcut, p, current);
+				else if (find_star(ptr, 2) && fill_map(*ptr, ptr->player_coord[p], 2, 0))
+					mem_res(ptr, &shortcut, p, current);
+				else if (ptr->piece->x > 1 && ptr->piece->y > 1 && find_star(ptr, 3) && fill_map(*ptr, ptr->player_coord[p], 3, 0))
+					mem_res(ptr, &shortcut, p, current);
+				else if (ptr->piece->x > 1 && ptr->piece->y > 1 && find_star(ptr, 4) && fill_map(*ptr, ptr->player_coord[p], 4, 0))
+					mem_res(ptr, &shortcut, p, current);
 			}
 			e++;
 		}
@@ -173,33 +185,19 @@ int		shortcut(t_filler *ptr)
 
 void	loop_writer(char *line, t_filler *ptr)
 {
-	// int fd = open("test", O_WRONLY | O_APPEND);
-	// ///////////////
-	// write(fd, line, ft_strlen(line));
-	// write(fd, "\n", 1);
-	// ///////////////
 	ptr->map->y = ft_atoi(ft_strchr(line, ' '));
 	ptr->map->x = ft_atoi(ft_strrchr(line, ' '));
 	free(line);
 	GNL(0, &line);
-	// ////////////////
-	// write(fd, line, ft_strlen(line));
-	// write(fd, "\n", 1);
-	// ////////////////
 	free(line);
 	ptr->map->arr = writer(ptr->map->x, ptr->map->y, 0);
-
 	GNL(0, &line);
-	// ///////////////
-	// write(fd, line, ft_strlen(line));
-	// write(fd, "\n", 1);
-	// //////////////
 	ptr->piece->y = ft_atoi(ft_strchr(line, ' '));
 	ptr->piece->x = ft_atoi(ft_strrchr(line, ' '));
 	ptr->piece->arr = writer(ptr->piece->x, ptr->piece->y, 1);
 	count_stars(ptr);
 	count_elems(ptr);
-	mem_elems(ptr);
+	mem_elems(ptr, 0, 0);
 	if (!shortcut(ptr))
 	{
 		ft_putstr("0 0\n");
@@ -222,9 +220,9 @@ int		main(void)
 	while (GNL(0, &line) > 0)
 	{
 		loop_writer(line, &ptr);
-		ft_putnbr(ptr.result.y - ptr.start_p.y);
+		ft_putnbr(ptr.result.y);
 		ft_putchar(' ');
-		ft_putnbr(ptr.result.x - ptr.start_p.x);
+		ft_putnbr(ptr.result.x);
 		ft_putchar('\n');
 	}
 	return (0);
