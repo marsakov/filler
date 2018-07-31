@@ -11,10 +11,8 @@
 #******************************************************************************#
 
 NAME = msakovyc.filler
-SRCS = untitled.c
+SRCS = main.c shortcut.c
 FLAGS = -Wall -Werror -Wextra
-
-OBJS = $(SRCS:.c=.o)
 
 all: $(NAME) 
 
@@ -23,7 +21,7 @@ $(NAME):
 	@ gcc $(FLAGS) $(SRCS) libft/libft.a -o $(NAME)
 
 %.o:%.c
-	@ gcc -o $@ -c $< -I ./libft
+	@ gcc -c $< -o $@ $(FLAGS)
 
 clean:
 	@ make -C libft clean
