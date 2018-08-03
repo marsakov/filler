@@ -52,15 +52,15 @@ typedef struct		s_filler
 	int				n;
 }					t_filler;
 
-char				**writter(int x, int y, int piece);
+char				**writer(int x, int y, int piece);
 void				count_elems(t_filler *ptr);
 void				mem_elems(t_filler *ptr, int p, int e);
-void				loop_writter(char *line, t_filler *ptr);
+void				loop_writer(char *line, t_filler *ptr);
 
 void				count_stars(t_filler *ptr);
 int					find_star(t_filler *ptr, int n);
 int					fill_map(t_filler p, t_coord c, int n, int counter);
-void				can_place(t_filler *pt, int *shortcut, int p, int current);
+int					can_place(t_filler *pt, int *shortcut, int p, int current);
 int					shortcut(t_filler *ptr, int p, int e);
 
 #endif

@@ -78,7 +78,7 @@ int		fill_map(t_filler p, t_coord c, int n, int counter)
 	return (counter == p.stars) ? (1) : (0);
 }
 
-void	can_place(t_filler *pt, int *shortcut, int p, int current)
+int		can_place(t_filler *pt, int *shortcut, int p, int current)
 {
 	if (find_star(pt, 1) && fill_map(*pt, pt->player_coord[p], 1, 0))
 	{
@@ -104,6 +104,7 @@ void	can_place(t_filler *pt, int *shortcut, int p, int current)
 		pt->result.y = pt->player_coord[p].y - pt->p_s.y;
 		*shortcut = current;
 	}
+	return (1);
 }
 
 int		shortcut(t_filler *ptr, int p, int e)
@@ -115,15 +116,20 @@ int		shortcut(t_filler *ptr, int p, int e)
 	ft_bzero(&(ptr->result), sizeof(t_coord));
 	while (p < ptr->counter_p)
 	{
-		e = 0;
-		while (e < ptr->counter_e)
+		if (ptr->counter_p <= ptr->counter_e * 2)
 		{
-			current = abs(ptr->player_coord[p].x - ptr->enemy_coord[e].x)
-					+ abs(ptr->player_coord[p].y - ptr->enemy_coord[e].y);
-			if (current <= shortcut)
-				can_place(ptr, &shortcut, p, current);
-			e++;
+			e = 0;
+			while (e < ptr->counter_e)
+			{
+				current = abs(ptr->player_coord[p].x - ptr->enemy_coord[e].x)
+						+ abs(ptr->player_coord[p].y - ptr->enemy_coord[e].y);
+				if (current <= shortcut)
+					can_place(ptr, &shortcut, p, current);
+				e++;
+			}
 		}
+		else if (can_place(ptr, &shortcut, p, 1) && shortcut == 1)
+			return (1);
 		p++;
 	}
 	return ((shortcut == ptr->map->x + ptr->map->y) ? 0 : 1);

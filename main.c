@@ -12,7 +12,7 @@
 
 #include "filler.h"
 
-char	**writter(int x, int y, int piece)
+char	**writer(int x, int y, int piece)
 {
 	char	**map;
 	char	*line;
@@ -87,18 +87,18 @@ void	mem_elems(t_filler *ptr, int p, int e)
 	}
 }
 
-void	loop_writter(char *line, t_filler *ptr)
+void	loop_writer(char *line, t_filler *ptr)
 {
 	ptr->map->y = ft_atoi(ft_strchr(line, ' '));
 	ptr->map->x = ft_atoi(ft_strrchr(line, ' '));
 	free(line);
 	GNL(0, &line);
 	free(line);
-	ptr->map->arr = writter(ptr->map->x, ptr->map->y, 0);
+	ptr->map->arr = writer(ptr->map->x, ptr->map->y, 0);
 	GNL(0, &line);
 	ptr->piece->y = ft_atoi(ft_strchr(line, ' '));
 	ptr->piece->x = ft_atoi(ft_strrchr(line, ' '));
-	ptr->piece->arr = writter(ptr->piece->x, ptr->piece->y, 1);
+	ptr->piece->arr = writer(ptr->piece->x, ptr->piece->y, 1);
 	count_stars(ptr);
 	count_elems(ptr);
 	mem_elems(ptr, 0, 0);
@@ -121,7 +121,7 @@ int		main(void)
 	free(line);
 	while (GNL(0, &line) > 0)
 	{
-		loop_writter(line, &ptr);
+		loop_writer(line, &ptr);
 		ft_putnbr(ptr.result.y);
 		ft_putchar(' ');
 		ft_putnbr(ptr.result.x);
