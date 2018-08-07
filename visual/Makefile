@@ -10,8 +10,8 @@
 #                                                                              #
 #******************************************************************************#
 
-NAME = fdf
-SRCS = main.c lines.c window.c changes.c
+NAME = visual
+SRCS = main.c draw.c
 FLAGS = -Wall -Werror -Wextra
 
 OBJS = $(SRCS:.c=.o)
