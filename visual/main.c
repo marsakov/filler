@@ -12,7 +12,7 @@
 
 #include "visual.h"
 
-void	writer(t_window *wnd)
+int		writer(t_window *wnd)
 {
 	char	*line;
 	int		i;
@@ -27,6 +27,7 @@ void	writer(t_window *wnd)
 		ft_strcpy(wnd->map[i++], line + 4);
 		free(line);
 	}
+	return (1);
 }
 
 int		get_color(char c)
@@ -55,6 +56,7 @@ void	create_wind(t_window *wnd, char *line)
 {
 	wnd->y = ft_atoi(ft_strchr(line, ' '));
 	wnd->x = ft_atoi(ft_strrchr(line, ' '));
+	wnd->result = 0;
 	writer(wnd);
 	wnd->mlx_ptr = mlx_init();
 	wnd->win_ptr = mlx_new_window(wnd->mlx_ptr, WIDTH, HEIGHT, "filler");
@@ -74,19 +76,15 @@ int		main(void)
 	free(line);
 	while (GNL(0, &line) > 0)
 	{
-		if (ft_strstr(line, "Plateau "))
-		{
-			writer(wnd);
+		if (ft_strstr(line, "Plateau ") && (writer(wnd)))
 			draw(wnd);
+		if (ft_strstr(line, "== O fin:") && (wnd->result = 1))
+		{
+			wnd->result1 = ft_strdup(line);
+			free(line);
+			GNL(0, &line);
+			wnd->result2 = ft_strdup(line);
 		}
-		// if (ft_strstr(line, "== O fin:"))
-		// {
-		// 	wnd->result = 1;
-		// 	wnd->result1 = ft_strdup(line);
-		// 	free(line);
-		// 	GNL(0, &line);
-		// 	wnd->result2 = ft_strdup(line);
-		// }
 		free(line);
 	}
 	mlx_loop_hook(wnd->mlx_ptr, draw, wnd);

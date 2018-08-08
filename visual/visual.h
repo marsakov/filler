@@ -10,14 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef VISUAL_H
+# define VISUAL_H
 
 # include "../libft/includes/libft.h"
 # include "mlx.h"
 # include <math.h>
-
-#include <stdio.h>
 
 # define GNL(fd, ln) get_next_line(fd, &line)
 # define HEIGHT 1200
@@ -33,14 +31,14 @@ typedef struct			s_window
 	int					result;
 	char				*result1;
 	char				*result2;
-	char 				**map;
+	char				**map;
 }						t_window;
 
-void	writer(t_window *wnd);
-int		get_color(char);
-int		change(int n, char c, t_window *wnd);
-int		draw(t_window *wnd);
-void	create_wind(t_window *wnd, char *line);
-void	putpix(t_window *wnd, int x, int y);
+int						writer(t_window *wnd);
+int						get_color(char c);
+int						change(int n, char c, t_window *wnd);
+int						draw(t_window *wnd);
+void					create_wind(t_window *wnd, char *line);
+void					putpix(t_window *wnd, int x, int y);
 
 #endif
