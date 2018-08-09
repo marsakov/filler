@@ -16,7 +16,7 @@ FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME) 
 
-$(NAME):
+$(NAME): $(SRCS)
 	@ make -C libft re
 	@ gcc $(FLAGS) $(SRCS) libft/libft.a -o $(NAME)
 
