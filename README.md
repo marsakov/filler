@@ -41,8 +41,8 @@ Standard mode :
 
 Visualizer mode :
 
-`./filler_vm -f [map] -p1 [player1] -p2 [player2] | ./visu`
+`./filler_vm -f [map] -p1 [player1] -p2 [player2] | ./visual/visual`
 
 Example from the root folder : 
-`ressources-filler/./filler_vm -f ressources-filler/maps/map02 -p1 ./msakovyc.filler -p2 ressources-filler/players/superjeannot.filler | ./visu`
+`ressources-filler/./filler_vm -f ressources-filler/maps/map02 -p1 ./msakovyc.filler -p2 ressources-filler/players/superjeannot.filler | ./visual/visual`
 
