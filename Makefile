@@ -18,6 +18,7 @@ all: $(NAME)
 
 $(NAME): $(SRCS)
 	@ make -C libft re
+	@ make -C visual re
 	@ gcc $(FLAGS) $(SRCS) libft/libft.a -o $(NAME)
 
 %.o:%.c
@@ -25,9 +26,11 @@ $(NAME): $(SRCS)
 
 clean:
 	@ make -C libft clean
+	@ make -C visual clean
 
 fclean: clean
 	@ rm -f $(NAME)
 	@ make -C libft fclean
+	@ make -C visual fclean
 
 re: fclean all
